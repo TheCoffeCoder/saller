@@ -1,0 +1,405 @@
+<S_card>:
+    orientation:"vertical"
+    size_hint_y:None
+    height:500
+    BoxLayout:
+        Image:
+            source:"burger.jpg"
+            canvas:
+                Color:
+                    rgba:1,1,1,1
+                RoundedRectangle:
+                    texture:self.texture
+                    size:self.size
+                    pos:self.pos
+                    radius:[10,10,1,1]
+    BoxLayout:
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+                radius:[1,1,10,10]
+        orientation:"vertical"
+        size_hint_y:0.4
+        MDLabel:
+            size_hint_y:1.3
+            text:"Chicken Burger"
+            halign:"center"
+            theme_text_color:"Primary"
+            font_style:"Caption"
+        MDLabel:
+            text:"500 TK"
+            halign:"center"
+            theme_text_color:"Secondary"
+            font_style:"Caption"
+
+<GridImage>:
+    size_hint_x:1
+
+    orientation:"vertical"
+    MDIconButton:
+        size_hint_y:0.25
+        icon:"close-circle-outline"
+        on_release:app.close_image()
+    Image:
+        id:img
+        allow_stretch:True
+        keep_ratio:False
+
+<Scroll@ScrollView>:
+    size_hint:(1,1)
+    GridLayout:
+        cols:1
+        spacing:10
+        padding:5
+        size_hint_y:None
+        height:self.minimum_height
+        canvas:
+            Color:
+                rgba:0.9,0.9,0.9,1
+            Rectangle:
+                size:self.size
+                pos:self.pos
+
+
+
+
+        Card_label:
+        S_card:
+        S_card:
+        S_card:
+        S_card:
+        S_card:
+        S_card:
+        S_card:
+
+
+<Main_screen>:
+    Screen:
+        name:"all"
+        BoxLayout:
+            orientation:"vertical"
+            MDBottomNavigation:
+                panel_color:240/255,245/255,244/255,1
+
+                MDBottomNavigationItem:
+                    name:"screen 1"
+                    text:"Sale"
+                    icon:"language-python"
+
+                    BoxLayout:
+                        orientation:"vertical"
+                        BoxLayout:
+                            size_hint_y:0.15
+                            orientation:"vertical"
+                            BoxLayout:
+                                size_hint_y:0.1
+                            MDRectangleFlatButton:
+                                text:"Sale Item"
+                                size_hint_y:None
+                                size_hint_y:0.75
+                                size_hint_x:1
+                                on_release:
+                                    app.main_screen.transition.direction = "left"
+                                    app.main_screen.current = "sale_item"
+
+                            ScrollView:
+                                bar_color:158/255,10/255,250/255,1
+                                size_hint:1,1
+                                GridLayout:
+                                    rows:1
+                                    size_hint_x:None
+                                    height:25
+                                    width:self.minimum_width
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                                    Mbtn:
+                        Scroll:
+                            id:scroll
+
+                MDBottomNavigationItem:
+                    name:"screen 2"
+                    text:"Notify"
+                    icon:"bell"
+                    Notify:
+                        id:notify
+
+                MDBottomNavigationItem:
+                    name:"screen 3"
+                    text:"Profile"
+                    icon:"apple"
+                    Profile:
+                        id:profile
+
+    Screen:
+        name:"sale_item"
+        BoxLayout:
+            orientation:"vertical"
+            BoxLayout:
+                size_hint_y:0.07
+                canvas:
+                    Color:
+                        rgba:242/255,239/255,22/255,1
+                    Rectangle:
+                        pos:self.pos
+                        size:self.size
+
+                MDFlatButton:
+                    pos_hint:{'center_x':0.5,'center_y':0.5}
+                    text:"Close"
+                    text_color:0,0,0,1
+                    on_release:
+                        app.main_screen.transition.direction="right"
+                        app.main_screen.current = "all"
+
+            BoxLayout:
+                ScrollView:
+                    size:1,1
+                    GridLayout:
+                        cols:1
+                        size_hint_y:None
+                        height:self.minimum_height
+                        Sale_box:
+                            id:sale_box
+
+
+
+<Mbtn@MDFlatButton>:
+    size_hint_x:None
+    text:"Pizza"
+    width:25
+    font_size:"8sp"
+    on_release:
+        self.text_color=(1,0,0,1)
+
+
+
+
+
+<DaiBox>:
+
+    orientation:"vertical"
+    canvas:
+        Color:
+            rgba:1,1,1,1
+        RoundedRectangle:
+            pos:self.pos
+            size:self.size
+            radius:[10]
+
+    MDLabel:
+        text:"Choose Availability"
+        halign:"center"
+        color:1,0,1,1
+
+    GridLayout:
+        cols:2
+        spacing:5
+        size_hint_y: None
+        height: self.minimum_height
+        MDLabel:
+            halign:"center"
+            text:"9-12 AM"
+        MDCheckbox:
+            id:a
+            size_hint_y:None
+            size: "30dp", "30dp"
+        MDLabel:
+            halign:"center"
+            text:"12-3 PM"
+        MDCheckbox:
+            id:b
+            size_hint_y:None
+            size: "30dp", "30dp"
+        MDLabel:
+            halign:"center"
+            text:"3-6 PM"
+        MDCheckbox:
+            id:c
+            size_hint_y:None
+            size: "30dp", "30dp"
+        MDLabel:
+            halign:"center"
+            text:"6-9 PM"
+        MDCheckbox:
+            id:d
+            size_hint_y:None
+            size: "30dp", "30dp"
+        MDLabel:
+            halign:"center"
+            text:"9-11 PM"
+        MDCheckbox:
+            id:e
+            size_hint_y:None
+            size: "30dp", "30dp"
+
+    BoxLayout:
+        size:self.size
+        pos:self.pos
+        MDFlatButton:
+            size:self.size
+            pos_hint:{'center_x':1,'center_y':0.5}
+            text:"Ok"
+            text_color:0,0,1,1
+            on_release:app.dai_ok()
+
+<S_popup>:
+    BoxLayout:
+        orientation:"vertical"
+        size_hint:1.5,1.1
+        canvas:
+            Color:
+                rgba:1,1,1,1
+            RoundedRectangle:
+                size:self.size
+                pos:self.pos
+                radius:[10]
+
+        BoxLayout:
+            size_hint_y:0.15
+            canvas:
+                Color:
+                    rgba:0,0,0,1
+                Rectangle:
+                    size:self.width,2
+                    pos:self.pos
+            MDLabel:
+                text:"Order No: 2050"
+                font_style:"H6"
+                halign:"center"
+
+        ScrollView:
+            size_hint:1,1
+            GridLayout:
+                size_hint_y:None
+                height:self.minimum_height
+                cols:2
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Category:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Burger"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Title:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Chicken Burger"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:250
+                    text:"Description:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:250
+                    text:"Sauces,Cheases,Chicken Added!"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Amount Per Day:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"10"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Price:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"120"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Time"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:50
+                    text:"Availability"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"9-12 AM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Sat,Sun,Mon"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"12-3 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Mon,Fri"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"3-6 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Tue,Thu"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"6-9 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Sat,Sun,Mon,Tue,Wed,Thu,Fri"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"9-11 PM:"
+                    halign:"center"
+                MDLabel:
+                    size_hint_y:None
+                    height:70
+                    text:"Sat,Sun"
+                    halign:"center"
+
+        MDFlatButton:
+            text:"Close"
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+            text_color:1,0,0,1
+            on_release:app.close_spopup()
+
+
+

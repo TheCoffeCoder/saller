@@ -1,0 +1,200 @@
+<H_card>:
+    text:"Burger-Accepted"
+    secondary_text:"Total earn 500"
+
+
+
+<Profile>:
+    orientation:"vertical"
+    BoxLayout:
+        size_hint_y:0.4
+        FloatLayout:
+            Image:
+                pos_hint:{'center_x':0.5,'center_y':0.5}
+                source:"index.jpg"
+                canvas:
+                    Color:
+                        rgba:1,1,1,1
+                    Rectangle:
+                        texture:self.texture
+                        pos:self.pos
+                        size:self.size
+
+    BoxLayout:
+        size_hint_y:0.13
+        canvas:
+            Color:
+                rgba:242/255,237/255,22/255,1
+            Rectangle:
+                size:self.width,2
+                pos:self.pos
+        MDLabel:
+            text:"Aysha's Kitchen"
+            halign:"center"
+            font_style:"Caption"
+            theme_text_color:"Primary"
+        MDIcon:
+            size_hint_x:0.15
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDLabel:
+            size_hint_x:0.2
+            text:"3.7"
+            color:245/255,54/255,159/255,1
+            font_style:"Caption"
+            halign:"left"
+
+    BoxLayout:
+        size_hint_y:0.12
+        MDRectangleFlatButton:
+            size_hint_x:None
+            text:"Review"
+            width:25
+            font_size:"8sp"
+            on_release:
+                self.text_color=(1,0,0,1)
+                app.pro_scr.transition.direction = "right"
+                app.pro_scr.current = "review"
+        MDRectangleFlatButton:
+            size_hint_x:None
+            text:"History"
+            width:25
+            font_size:"8sp"
+            on_release:
+                self.text_color=(1,0,0,1)
+                app.pro_scr.transition.direction = "left"
+                app.pro_scr.current = "history"
+
+    BoxLayout:
+        ScreenManager:
+            id:pro_scr
+            Screen:
+                name:"review"
+                ScrollView:
+                    size:1,1
+                    GridLayout:
+                        cols:1
+                        size_hint_y:None
+                        height:self.minimum_height
+                        Adress:
+                        Review_card:
+                        Review_card:
+                        Review_card:
+                        Review_card:
+                        Review_card:
+                        Review_card:
+                        Review_card:
+                        Review_card:
+            Screen:
+                name:"history"
+                ScrollView:
+                    size:1,1
+                    GridLayout:
+                        cols:1
+                        size_hint_y:None
+                        height:self.minimum_height
+                        MDList:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+                            H_card:
+
+
+<Review_card>:
+    size_hint_y:None
+    height:200
+    orientation:"vertical"
+    canvas:
+        Color:
+            rgba:0.3,0.3,0.3,0.5
+
+        Rectangle:
+            size:self.width,2
+            pos:self.pos
+
+    BoxLayout:
+        size_hint_y:0.42
+        BoxLayout:
+            size_hint_x:2.9
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        MDIcon:
+            icon:"okk.png"
+            size_hint_y:0.52
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        BoxLayout:
+            size_hint_x:0.7
+
+    BoxLayout:
+        size_hint_y:0.05
+        BoxLayout:
+            size_hint_x:0.08
+        MDLabel:
+            text:"Raihan"
+            font_style:"Caption"
+            bold:True
+            theme_text_color:"Primary"
+            pos:2000,1000
+
+
+    BoxLayout:
+        BoxLayout:
+            size_hint_x:0.08
+        MDLabel:
+            text:"pretty much good test,love tha sauces thnx for nice delivery!!"
+            font_style:"Caption"
+            theme_text_color:"Secondary"
+            pos_hint:{'center_x':0.5,'center_y':0.5}
+        BoxLayout:
+            size_hint_x:0.05
+
+
+
+
+<Adress>:
+    size_hint_y:None
+    minimum_height:80
+    BoxLayout:
+        size_hint_x:0.075
+    BoxLayout:
+        orientation:"vertical"
+        MDLabel:
+            text:"Adress:"
+            font_style:"Caption"
+            theme_text_color:"Primary"
+            valign:"middle"
+            halign:"center"
+        MDLabel:
+            text:"Dhaka,cantonment,Dhaka,matikata bazar"
+            font_style:"Caption"
+            theme_text_color:"Secondary"
+            valign:"top"
+            halign:"center"
+    BoxLayout:
+        size_hint_x:0.05
+

@@ -1,0 +1,49 @@
+<Notify>:
+    ScrollView:
+        size_hint:1,1
+        scroll_distance:2
+        scroll_timeout:300
+        GridLayout:
+            cols:1
+            size_hint_y:None
+            height:self.minimum_height
+            spacing:15
+            padding:10
+            canvas:
+                Color:
+                    rgba:240/255,238/255,235/255,1
+                RoundedRectangle:
+                    pos:self.pos
+                    size:self.size
+                    radius:[18]
+
+            BoxLayout:
+                size_hint_y:None
+                height:350
+                canvas:
+                    Color:
+                        rgba:240/255,238/255,235/255,1
+                    RoundedRectangle:
+                        pos:self.pos
+                        size:self.size
+                        radius:[18]
+                orientation:"vertical"
+                MDLabel:
+                    text:"You Got An Order!!"
+                    font_style:"H5"
+                    halign:"center"
+                    color:1,0.5,0,1
+                MDLabel:
+                    size_hint_y:0.5
+                    text:"Order Code 0211"
+                    halign:"center"
+                BoxLayout:
+                    size_hint_y:0.5
+                    MDRaisedButton:
+                        text:"ACCEPT"
+                    FloatLayout:
+
+                        MDFlatButton:
+                            text:"Reject"
+                            text_color:1,0,0,1
+                            pos_hint:{'center_x':0.64,'center_y':0.22}

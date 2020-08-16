@@ -1,0 +1,134 @@
+#:include sale.kv
+#:include notify.kv
+#:include profile.kv
+<Sale_box>:
+    orientation:"vertical"
+    size_hint_y:None
+    height:2000
+    canvas:
+        Color:
+            rgba:1,1,1,1
+        RoundedRectangle:
+            size:self.size
+            pos:self.pos
+            radius:[20]
+    FloatLayout:
+        size_hint:0.5,0.3
+        MDLabel:
+            text:"Sale Item:"
+            font_style:"H6"
+            italic:True
+            pos_hint:{"center_x":1,"center_y":0.97}
+            color:0.1,0.2,0.3,1
+        MDTextField:
+            id:category
+            hint_text:"Category"
+            mode:"rectangle"
+            size_hint_x:1.5
+            pos_hint:{"center_x":1,"center_y":0.87}
+        MDTextField:
+            id:title
+            hint_text:"Title"
+            mode:"rectangle"
+            size_hint_x:1.5
+            pos_hint:{"center_x":1,"center_y":0.93}
+        MDTextField:
+            id:description
+            hint_text:"Description"
+            mode:"rectangle"
+            size_hint_x:1.5
+            size_hint_y:0.3
+            pos_hint:{"center_x":1,"center_y":0.685}
+        MDTextField:
+            id:amount
+            hint_text:"Amount Per Day"
+            mode:"rectangle"
+            size_hint_x:1.5
+            pos_hint:{"center_x":1,"center_y":0.5}
+        MDTextField:
+            id:price
+            hint_text:"Price"
+            mode:"rectangle"
+            size_hint_x:1.5
+            pos_hint:{"center_x":1,"center_y":0.44}
+        MDRoundFlatIconButton:
+            id:select
+            text: "Select Photo"
+            icon: "folder"
+            pos_hint: {'center_x': 1, 'center_y': 0.38}
+            on_release: app.file_manager_open()
+
+        BoxLayout:
+            id:grid_img
+            pos_hint: {'center_x': 1, 'center_y': 0.28}
+            size_hint:1,0.1
+
+
+
+
+        MDLabel:
+            text:"Choose Time:"
+            pos_hint:{"center_x":1,"center_y":0.19}
+        MDTextButton:
+            id:sat
+            text: "Saturday"
+            pos_hint: {'center_x': .36, 'center_y': .15}
+            on_release:app.dailouge(sat)
+        MDTextButton:
+            id:sun
+            text: "Sunday"
+            pos_hint: {'center_x': 1, 'center_y': .15}
+            on_release:app.dailouge(sun)
+        MDTextButton:
+            id:mon
+            text: "Monday"
+            pos_hint: {'center_x': 1.6, 'center_y': .15}
+            on_release:app.dailouge(mon)
+
+        MDTextButton:
+            id:tue
+            text: "Tuesday"
+            pos_hint: {'center_x': .6, 'center_y': .115}
+            on_release:app.dailouge(tue)
+        MDTextButton:
+            id:wed
+            text: "Wednesday"
+            pos_hint: {'center_x': 1.4, 'center_y': .115}
+            on_release:app.dailouge(wed)
+        MDTextButton:
+            id:thu
+            text: "Thursday"
+            pos_hint: {'center_x': .6, 'center_y': .08}
+            on_release:app.dailouge(thu)
+        MDTextButton:
+            id:fri
+            text: "Friday"
+            pos_hint: {'center_x': 1.4, 'center_y': .08}
+            on_release:app.dailouge(fri)
+
+
+        MDRaisedButton:
+            text:"Submit"
+            pos_hint:{'center_x':1,'center_y':0.03}
+            on_release:app.submit()
+
+
+<Card_label@MDLabel>:
+    size_hint_y:None
+    height:100
+    text:"Burger"
+    italic:True
+    bold:True
+    halign:"center"
+    font_style:"H5"
+    font_size:"15sp"
+
+<Cardbutton>:
+    background_color:1,1,1,0
+    on_release:app.s_pop()
+
+
+
+
+
+
